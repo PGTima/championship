@@ -32,3 +32,5 @@ INSERT INTO public.club(id, name, description, championship_id) VALUES (2, 'Зе
 INSERT INTO public.club(id, name, description, championship_id) VALUES (3, 'Гамбург', 'Немецкий клуб', 2);
 INSERT INTO public.club(id, name, description, championship_id) VALUES (4, 'ПСЖ', 'Paris Saint German', 4);
 INSERT INTO public.club(id, name, description, championship_id) VALUES (5, 'Ювентус', 'Италия', 5);
+alter sequence club_id_seq restart with 6;
+alter sequence championship_id_seq restart with 6;

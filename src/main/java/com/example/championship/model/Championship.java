@@ -3,10 +3,8 @@ package com.example.championship.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-
-import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +14,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Championship {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = SEQUENCE, generator = "championship_id_seq")
+    @SequenceGenerator(name = "championship_id_seq", sequenceName = "championship_id_seq", allocationSize = 1)
     @Column(name = "id")
     private Long id;
 

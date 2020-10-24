@@ -6,9 +6,6 @@ CREATE TABLE public.club
     championship_id bigint NOT NULL,
     PRIMARY KEY (id)
 );
-
-ALTER TABLE public.club
-    OWNER to postgres;
 -----------------------------------------------------------
 CREATE TABLE public.championship
 (
@@ -19,16 +16,7 @@ CREATE TABLE public.championship
     PRIMARY KEY (id)
 );
 CREATE SEQUENCE public.championship_id_seq;
-
-ALTER SEQUENCE public.championship_id_seq
-    OWNER TO postgres;
 CREATE SEQUENCE public.club_id_seq;
-
-ALTER SEQUENCE public.club_id_seq
-    OWNER TO postgres;
-
-ALTER TABLE public.championship
-    OWNER to postgres;
 
 alter table club
 	add constraint club_championship_id_fk
