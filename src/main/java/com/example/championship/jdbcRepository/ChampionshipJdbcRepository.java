@@ -12,9 +12,8 @@ import java.util.List;
 @Repository
 public class ChampionshipJdbcRepository {
 
-    @Autowired
     private final JdbcTemplate jdbcTemplate;
-
+    @Autowired
     public ChampionshipJdbcRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

@@ -12,7 +12,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Getter
 @Table(name = "championship")
 public class Championship {
-
+    public static String TYPE_NAME = "Чемпионат";
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "championship_id_seq")
     @SequenceGenerator(name = "championship_id_seq", sequenceName = "championship_id_seq", allocationSize = 1)

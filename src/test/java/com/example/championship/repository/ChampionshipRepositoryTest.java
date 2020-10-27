@@ -1,9 +1,8 @@
-package com.example.championship;
+package com.example.championship.repository;
 
+import com.example.championship.config.TestConfig;
 import com.example.championship.jpaRepository.ChampionshipRepository;
 import com.example.championship.model.Championship;
-import com.example.championship.model.Club;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 @ContextConfiguration(classes = {TestConfig.class})
 public class ChampionshipRepositoryTest {
+
     @Autowired
     private ChampionshipRepository championshipRepository;
 

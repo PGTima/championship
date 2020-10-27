@@ -13,7 +13,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NoArgsConstructor
 @Table(name = "club")
 public class Club {
-
+    public static String TYPE_NAME = "Клуб";
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "club_id_seq")
     @SequenceGenerator(name = "club_id_seq", sequenceName = "club_id_seq", allocationSize = 1)
