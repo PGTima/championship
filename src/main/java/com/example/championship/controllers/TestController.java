@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/champinship")
-public class ChampinshipController {
+@RequestMapping("api/v1/test")
+public class TestController {
 
     private final ChampionshipJdbcRepository championshipJdbcRepository;
     private final ChampionshipRepository championshipRepository;
 
-    public ChampinshipController(ChampionshipJdbcRepository championshipJdbcRepository, ChampionshipRepository championshipRepository) {
+    public TestController(ChampionshipJdbcRepository championshipJdbcRepository, ChampionshipRepository championshipRepository) {
         this.championshipJdbcRepository = championshipJdbcRepository;
         this.championshipRepository = championshipRepository;
     }

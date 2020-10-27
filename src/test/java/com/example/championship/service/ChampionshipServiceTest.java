@@ -5,6 +5,7 @@ import com.example.championship.exceptions.EntityHasDetailsException;
 import com.example.championship.exceptions.EntityIllegalArgumentException;
 import com.example.championship.exceptions.EntityNotFoundException;
 import com.example.championship.model.Championship;
+import com.example.championship.service.impl.ChampionshipServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ChampionshipServiceTest {
 
     @Autowired
-    private ChampionshipService championshipService;
+    private ChampionshipServiceImpl championshipService;
 
     @Test
     public void findAllTest() {

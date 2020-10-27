@@ -1,8 +1,9 @@
 package com.example.championship.controllers;
 
-import com.example.championship.jpaRepository.ClubRepository;
-import com.example.championship.model.Championship;
 import com.example.championship.model.Club;
+import com.example.championship.service.ClubService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,29 +12,41 @@ import java.util.List;
 @RequestMapping("api/v1/club")
 public class ClubController {
 
-    private final ClubRepository clubRepository;
-
-    public ClubController(ClubRepository clubRepository) {
-        this.clubRepository = clubRepository;
+    private final ClubService clubService;
+    @Autowired
+    public ClubController(ClubService clubService) {
+        this.clubService = clubService;
     }
 
     @GetMapping("/allClub")
     public List<Club> allClub() {
-        return clubRepository.findAll();
+        return clubService.findAll();
     }
 
     @GetMapping("/clubById/{id}")
-    public Club getClubById(@PathVariable Long id) {
-        return clubRepository.findById(id).orElse(null);
+    public Club getClubById(@PathVariable String id) {
+        return clubService.findById(id);
     }
 
     @PostMapping("/addClub")
+    @ResponseStatus(HttpStatus.CREATED)
     public Club addClub(@RequestBody Club club){
-        return clubRepository.save(club);
+        return clubService.createClub(club);
     }
 
-    @GetMapping("/ClubByChampions/{id}")
-    public List<Club> getChampionshipById(@PathVariable Long id) {
-        return clubRepository.findByChampionshipId(id);
+    @GetMapping("/clubByChampions/{id}")
+    public List<Club> getChampionshipById(@PathVariable String id) {
+        return clubService.findByClubByChampioshipId(id);
+    }
+
+    @GetMapping("/findByName/{name}")
+    public Club findByName(@PathVariable String name) {
+        return clubService.findByName(name);
+    }
+
+    @PutMapping("/updateClub")
+    @ResponseStatus(HttpStatus.OK)
+    public Club updateClub(@RequestBody Club club) {
+        return clubService.updateClub(club);
     }
 }
