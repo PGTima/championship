@@ -1,5 +1,6 @@
 package com.example.championship.service.impl;
 
+import com.example.championship.annotation.Loggable;
 import com.example.championship.exceptions.EntityHasDetailsException;
 import com.example.championship.exceptions.EntityIllegalArgumentException;
 import com.example.championship.exceptions.EntityNotFoundException;
@@ -25,6 +26,7 @@ public class ChampionshipServiceImpl implements ChampionshipService {
         this.championshipRepository = championshipRepository;
     }
     @Override
+    @Loggable
     public List<Championship> findAll(){
         return championshipRepository.findAll();
     }
@@ -35,6 +37,7 @@ public class ChampionshipServiceImpl implements ChampionshipService {
      * @return
      */
     @Override
+    @Loggable
     public Championship findById(Object id){
         Championship championship;
         if(id == null){
@@ -59,6 +62,7 @@ public class ChampionshipServiceImpl implements ChampionshipService {
      * @return Championship
      */
     @Override
+    @Loggable
     public Championship createChampionship(Championship championship){
 
         if (championship == null){
@@ -77,6 +81,7 @@ public class ChampionshipServiceImpl implements ChampionshipService {
      * @param id идентификатор
      */
     @Override
+    @Loggable
     public void delete(Object id) {
         Championship championship = findById(id);
         List<Club> clubs = clubRepository.findByChampionshipId(Long.valueOf(id.toString()));
@@ -92,6 +97,7 @@ public class ChampionshipServiceImpl implements ChampionshipService {
      * @return Championship
      */
     @Override
+    @Loggable
     public Championship updateChampionship(Championship championship){
 
         if (championship == null){

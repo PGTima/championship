@@ -1,5 +1,6 @@
 package com.example.championship.service.impl;
 
+import com.example.championship.annotation.Loggable;
 import com.example.championship.exceptions.EntityAlreadyExistsException;
 import com.example.championship.exceptions.EntityHasDetailsException;
 import com.example.championship.exceptions.EntityIllegalArgumentException;
@@ -27,6 +28,7 @@ public class ClubServiceImpl implements ClubService {
     }
 
     @Override
+    @Loggable
     public List<Club> findAll(){
         return clubRepository.findAll();
     }
@@ -36,6 +38,7 @@ public class ClubServiceImpl implements ClubService {
      * @return Club
      */
     @Override
+    @Loggable
     public Club findById(Object id){
         Club club;
         if(id == null) {
@@ -60,6 +63,7 @@ public class ClubServiceImpl implements ClubService {
      * @return Club
      */
     @Override
+    @Loggable
     public Club findByName(String name){
         Club club;
         if(name == null) {
@@ -78,6 +82,7 @@ public class ClubServiceImpl implements ClubService {
      * @return List Club
      */
     @Override
+    @Loggable
     public List<Club> findByClubByChampioshipId(Object id){
         List<Club> club;
         if(id == null) {
@@ -105,6 +110,7 @@ public class ClubServiceImpl implements ClubService {
      * @return Club
      */
     @Override
+    @Loggable
     public Club createClub(Club club){
 
         if (club == null){
@@ -132,6 +138,7 @@ public class ClubServiceImpl implements ClubService {
      * @param id идентификатор
      */
     @Override
+    @Loggable
     public void delete(Object id) {
         Club club = findById(id);
         championshipRepository.deleteById(Long.valueOf(id.toString()));
@@ -143,6 +150,7 @@ public class ClubServiceImpl implements ClubService {
      * @return Club
      */
     @Override
+    @Loggable
     public Club updateClub(Club club){
 
         if (club == null){
