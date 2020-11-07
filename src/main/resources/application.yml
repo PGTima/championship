@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   profiles:
     active: @spring.profiles.active@
   datasource:
@@ -13,6 +15,8 @@ spring:
         format_sql: true
 ---
 spring:
+  main:
+    allow-bean-definition-overriding: true
   profiles: prod
   datasource:
     driverClassName: org.postgresql.Driver
